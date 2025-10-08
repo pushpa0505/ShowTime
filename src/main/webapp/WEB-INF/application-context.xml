@@ -33,7 +33,7 @@
     
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-	    <property name="url" value="jdbc:mysql://#{systemEnvironment['MYSQLHOST']}:#{systemEnvironment['MYSQLPORT']}/#{systemEnvironment['MYSQLDATABASE']}" />
+	    <property name="url" value="jdbc:mysql://#{systemEnvironment['MYSQLHOST']}:#{systemEnvironment['MYSQLPORT']}/#{systemEnvironment['MYSQLDATABASE']}?serverTimezone=Asia/Kolkata" />
 	    <property name="username" value="#{systemEnvironment['MYSQLUSER']}" />
 	    <property name="password" value="#{systemEnvironment['MYSQLPASSWORD']}" />
 	</bean>
@@ -56,5 +56,6 @@
     </bean>
     
     <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
 
 </beans>
