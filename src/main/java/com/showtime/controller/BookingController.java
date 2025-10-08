@@ -89,7 +89,7 @@ public class BookingController {
 	    Booking pendingBooking = new Booking();
 	    pendingBooking.setShowtime(showtime);
 	    pendingBooking.setBookedSeats(bookedSeatsString);
-	    pendingBooking.setTotalPrice(finalTotal);
+	    pendingBooking.setTotalPrice(basePrice);
 	    pendingBooking.setBookingDate(LocalDate.now());
 
 	    session.setAttribute("pendingBooking", pendingBooking);
@@ -112,11 +112,12 @@ public class BookingController {
 		
 		
 		// --- PRICE BREAKDOWN LOGIC ---
-	    double finalTotal = pendingBooking.getTotalPrice();
+	    // double finalTotal = pendingBooking.getTotalPrice();
 	    // We need to reverse-calculate the base price to show the breakdown
-	    double basePrice = finalTotal / (1 + (BOOKING_FEE_RATE * (1 + GST_RATE)));
+	    double basePrice = pendingBooking.getTotalPrice();
 	    double bookingFee = basePrice * BOOKING_FEE_RATE;
 	    double gstOnFee = bookingFee * GST_RATE;
+	    double finalTotal = basePrice + bookingFee + gstOnFee;
 	    // Pass all price components to the JSP
 	    model.addAttribute("basePrice", basePrice);
 	    model.addAttribute("bookingFee", bookingFee);
