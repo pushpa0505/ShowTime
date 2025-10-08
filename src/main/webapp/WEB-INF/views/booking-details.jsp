@@ -78,15 +78,6 @@
 	        <h2 class="text-xl font-bold mt-6 mb-4">Payment summary</h2>
 				<div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
 				    
-				    <%-- Let's calculate the fees here using JSTL --%>
-				    <c:set var="bookingFeeRate" value="0.10" /> <%-- Assuming a 10% booking fee --%>
-				    <c:set var="gstRate" value="0.18" /> <%-- Assuming 18% GST on the booking fee --%>
-				
-				    <c:set var="baseBookingFee" value="${booking.totalPrice * bookingFeeRate}" />
-				    <c:set var="gstOnFee" value="${baseBookingFee * gstRate}" />
-				    <c:set var="totalBookingCharge" value="${baseBookingFee + gstOnFee}" />
-				    <c:set var="finalTotal" value="${booking.totalPrice + totalBookingCharge}" />
-				
 				    <div class="space-y-3 text-gray-800">
 				        <button class="flex justify-between items-center w-full text-base font-medium toggle-details" data-target="order-details" data-arrow="order-arrow">
 				            <div class="flex items-center space-x-2 text-gray-900">
@@ -217,4 +208,5 @@
 	    };
 	</script>
 </body>
+
 </html>
