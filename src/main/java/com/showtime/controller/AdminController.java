@@ -49,7 +49,7 @@ public class AdminController {
 		return "redirect:/admin/login";
 	}
 	
-	@GetMapping("/login")
+	@GetMapping({"/", /login"})
 	public String showLoginForm() {
 		return "admin-login";
 	}
@@ -99,3 +99,4 @@ public class AdminController {
 	
 	
 }
+
