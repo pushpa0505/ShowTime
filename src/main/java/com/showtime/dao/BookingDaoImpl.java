@@ -49,7 +49,7 @@ public class BookingDaoImpl implements BookingDao {
 	@Override
 	public List<Booking> findByUserId(int userId) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "FROM Booking b WHERE b.user.id = :userId ORDER BY b.showtime.showDate DESC";
+		String hql = "FROM Booking b WHERE b.user.id = :userId ORDER BY b.showtime.showDate ASC, b.showtime.startTime ASC";
 		Query<Booking> query = session.createQuery(hql, Booking.class);
 		query.setParameter("userId", userId);
 		return query.list();
@@ -72,3 +72,4 @@ public class BookingDaoImpl implements BookingDao {
 
 
 }
+
