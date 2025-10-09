@@ -92,7 +92,7 @@
                 		<img src="${movie.posterUrl}" alt="${movie.title}" class="w-full h-auto rounded-t-lg aspect-[2/3] object-cover">
                 		<div class="p-3">
                     		<h3 class="font-bold text-md truncate">${movie.title}</h3>
-                    		<p class="text-gray-600 text-sm">${movie.certificate} &bull; ${movie.languages}</p>
+                    		<p class="text-gray-600 text-sm truncate">${movie.certificate} &bull; ${movie.languages}</p>
                			</div>
             		</div>
         			</a>
@@ -113,7 +113,7 @@
                 		<img src="${movie.posterUrl}" alt="${movie.title}" class="w-full h-auto rounded-t-lg aspect-[2/3] object-cover">
                 		<div class="p-3">
                     		<h3 class="font-bold text-md truncate">${movie.title}</h3>
-                    		<p class="text-gray-600 text-sm">${movie.certificate} &bull; ${movie.languages}</p>
+                    		<p class="text-gray-600 text-sm truncate">${movie.certificate} &bull; ${movie.languages}</p>
                 		</div>
             		</div>
         			</a>
@@ -249,3 +249,4 @@
 
 </body>
 </html>
+
