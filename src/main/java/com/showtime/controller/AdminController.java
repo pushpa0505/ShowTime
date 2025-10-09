@@ -53,11 +53,7 @@ public class AdminController {
 	public String showLoginForm() {
 		return "admin-login";
 	}
-	
-	@GetMapping
-	public String showLoginForm() {
-		return "admin-login";
-	}
+
 	
 	@PostMapping("/login")
 	public String loginAdmin(
@@ -104,6 +100,7 @@ public class AdminController {
 	
 	
 }
+
 
 
 
