@@ -85,19 +85,28 @@
 		<!-- now showing movies -->
         <section class="mb-8">
             <h2 class="text-xl font-bold mb-4">Now Showing</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-    			<c:forEach var="movie" items="${nowShowingMovies}">
-        			<a href="${pageContext.request.contextPath}/movie/${movie.id}">
-            		<div class="bg-white rounded-lg shadow-sm cursor-pointer transition-shadow hover:shadow-xl">
-                		<img src="${movie.posterUrl}" alt="${movie.title}" class="w-full h-auto rounded-t-lg aspect-[2/3] object-cover">
-                		<div class="p-3">
-                    		<h3 class="font-bold text-md truncate">${movie.title}</h3>
-                    		<p class="text-gray-600 text-sm truncate">${movie.certificate} &bull; ${movie.languages}</p>
-               			</div>
-            		</div>
-        			</a>
-    			</c:forEach>
-			</div>
+            <c:choose>
+		        <c:when test="${not empty nowShowingMovies}">
+		            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+		                <c:forEach var="movie" items="${nowShowingMovies}">
+		                    <a href="${pageContext.request.contextPath}/movie/${movie.id}">
+		                        <div class="bg-white rounded-lg shadow-sm cursor-pointer transition-shadow hover:shadow-xl">
+		                            <img src="${movie.posterUrl}" alt="${movie.title}" class="w-full h-auto rounded-t-lg aspect-[2/3] object-cover">
+		                            <div class="p-3">
+		                                <h3 class="font-bold text-md truncate">${movie.title}</h3>
+		                                <p class="text-gray-600 text-sm truncate">${movie.certificate} &bull; ${movie.languages}</p>
+		                            </div>
+		                        </div>
+		                    </a>
+		                </c:forEach>
+		            </div>
+		        </c:when>
+		        <c:otherwise>
+		            <div class="flex justify-center items-center h-48 bg-gray-100 rounded-lg">
+		                <p class="text-gray-500 italic text-lg">No shows available.</p>
+		            </div>
+		        </c:otherwise>
+		    </c:choose>
         </section>
 
 		<!-- upcoming movies -->
@@ -249,4 +258,5 @@
 
 </body>
 </html>
+
 
