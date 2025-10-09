@@ -20,19 +20,20 @@
     <mvc:annotation-driven />
     <tx:annotation-driven />
 
-	<bean id="timeZoneConfig" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+
+     <bean id="timeZoneConfig" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
     <property name="targetClass" value="java.util.TimeZone" />
     <property name="targetMethod" value="setDefault" />
     <property name="arguments">
         <list>
-            <bean class="java.util.TimeZone">
-                <factory-method="getTimeZone">
-                    <constructor-arg value="Asia/Kolkata" />
-                </factory-method>
+            <bean class="java.util.TimeZone" factory-method="getTimeZone">
+                <constructor-arg value="Asia/Kolkata" />
             </bean>
         </list>
     </property>
 </bean>
+
+	
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/" />
@@ -73,4 +74,5 @@
 
 
 </beans>
+
 
